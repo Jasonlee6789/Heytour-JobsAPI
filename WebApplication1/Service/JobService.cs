@@ -9,7 +9,7 @@ namespace WebApplication1.Service
 {
     public interface IJobService
     {
-        Task<IEnumerable<Heytour>> GetJobs();
+        Task<IEnumerable<Heytour>> GetJobsList();
     }
     public class JobService : IJobService
     {
@@ -20,12 +20,13 @@ namespace WebApplication1.Service
             _jobRepo = jobRepo;
         }
 
-        public async Task<IEnumerable<Heytour>> GetJobs()
+        public async Task<IEnumerable<Heytour>> GetJobsList()
         {
             var jobs = await Task.Run(() => _jobRepo.GetJobs().ToList());
             return jobs;
         }
 
+     
     }
     
 }

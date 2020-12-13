@@ -10,22 +10,30 @@ using WebApplication1.Service;
 namespace WebApplication1.Controllers
 {
 
-        [ApiController]
-        [Route("api/GetJobList")]
-        public class HeytourController : Controller
+    [ApiController]
+    [Route("api/heytour")]
+    public class HeytourController : Controller
+    {
+        private readonly IJobService _jobService;
+        public HeytourController(IJobService jobService)
         {
-            private readonly IJobService _jobService;
-            public HeytourController(IJobService jobService)
-            {
-                _jobService = jobService;
-            }
-            [HttpGet]
-            public async Task<ActionResult<IEnumerable<Heytour>>> GetJobs()
-            {
-                var jobs = await _jobService.GetJobs();
-
-                return jobs.ToList();
-            }
+            _jobService = jobService;
         }
+        [HttpGet] //api/heytour
+        public async Task<ActionResult<IEnumerable<Heytour>>> GetJobsList()
+        {
+            var jobs = await _jobService.GetJobsList();
+
+            return jobs.ToList();
+        }
+        /*
+         [HttpGet("jobId")] //api/heytour/jobId
+public async Task<ActionResult<IEnumerable<Heytour>>> GetJobsList(int jobId)
+                {
+                    var job = await _jobService.GetJobsList(jobId);
+                    return new JsonResult(job);
+                }
+       */
+    }
 
 }

@@ -4,7 +4,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Models;
+using WebApplication1.Model;
+using WebApplication1.Repo;
+using WebApplication1.Service;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.OpenApi.Models;
+
 
 namespace WebApplication1
 {
@@ -21,18 +26,26 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options =>
- {
-     options.AddDefaultPolicy(
-         builder =>
-         {
-             builder.WithOrigins("*")
-                     .AllowAnyHeader()
-                     .AllowAnyMethod();
-         });
- });
+        {
+           options.AddDefaultPolicy(
+           builder =>
+           {
+               builder.WithOrigins("*")
+                       .AllowAnyHeader()
+                       .AllowAnyMethod();
+           });
+        }
+                            );
 
+            services.AddScoped<IJobService, JobService>();
+            services.AddScoped<IJobRepo, JobRepo>();
 
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Heytour-JobsAPI", Version = "v1" });
+            });
 
         }
 
@@ -42,15 +55,18 @@ namespace WebApplication1
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Heytour-JobsAPI v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
-            app.UseCors();
+         
 
             app.UseEndpoints(endpoints =>
             {
