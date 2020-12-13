@@ -154,3 +154,11 @@ D:\CodeProject\JOB\JobListApi\WebApplication1\WebApplication1\bin\Debug\netcorea
 D:\CodeProject\JOB\JobListApi\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\CodeProject\JOB\JobListApi\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\CodeProject\JOB\JobListApi\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\data.json
+D:\CodeProject\JobListApi\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csprojAssemblyReference.cache
+D:\CodeProject\JobListApi\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.GeneratedMSBuildEditorConfig.editorconfig
+D:\CodeProject\JobListApi\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.AssemblyInfoInputs.cache
+D:\CodeProject\JobListApi\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.AssemblyInfo.cs
+D:\CodeProject\JobListApi\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csproj.CoreCompileInputs.cache
+D:\CodeProject\JobListApi\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.MvcApplicationPartsAssemblyInfo.cache
+D:\CodeProject\JobListApi\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.dll
+D:\CodeProject\JobListApi\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.pdb

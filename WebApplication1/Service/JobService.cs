@@ -2,10 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Model;
+using WebApplication1.Repo;
 
 namespace WebApplication1.Service
 {
-    public class JobService
+    public interface IJobService
     {
+        Task<IEnumerable<Heytour>> GetJobs();
     }
+    public class JobService : IJobService
+    {
+        private readonly IJobRepo _jobRepo;
+
+        public JobService(IJobRepo jobRepo)
+        {
+            _jobRepo = jobRepo;
+        }
+
+        public async Task<IEnumerable<Heytour>> GetJobs()
+        {
+            var jobs = await Task.Run(() => _jobRepo.GetJobs().ToList());
+            return jobs;
+        }
+
+    }
+    
 }
