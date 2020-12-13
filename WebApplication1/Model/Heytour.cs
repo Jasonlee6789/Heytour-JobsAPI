@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApplication1.Models
+namespace WebApplication1.Model
 {
     public class Heytour
     {
         public int Id { get; set; }
         public bool IsActive { get; set; }
         public string Title { get; set; }
+        public string Location { get; set; }
         public string Industry { get; set; }
         public string Picture { get; set; }
         public string Company { get; set; }

@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Controllers
 {
     public class HeytourController
     {
-        [HttpGet]
+
+        [ApiController]
         [Route("GetJobList")]
-        public async Task<ActionResult<>> GetJobList()
+
+        public class HeytourController : Controller
         {
-            return 
+
         }
+        [HttpGet]
+        public async Task<ActionResult<>> GetJobList() =>
     }
 }

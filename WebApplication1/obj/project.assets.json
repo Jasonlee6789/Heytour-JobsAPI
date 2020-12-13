@@ -8897,11 +8897,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CodeProject\\JOB\\JobListApi\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "D:\\CodeProject\\JobListApi\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "D:\\CodeProject\\JOB\\JobListApi\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "D:\\CodeProject\\JobListApi\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\86134\\.nuget\\packages\\",
-      "outputPath": "D:\\CodeProject\\JOB\\JobListApi\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "D:\\CodeProject\\JobListApi\\WebApplication1\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\86134\\AppData\\Roaming\\NuGet\\NuGet.Config",
