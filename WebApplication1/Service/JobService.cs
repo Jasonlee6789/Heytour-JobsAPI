@@ -10,23 +10,35 @@ namespace WebApplication1.Service
     public interface IJobService
     {
         Task<IEnumerable<Heytour>> GetJobsList();
+        // Task<IEnumerable<Heytour>> GetJobById();
     }
+    //构造函数注入常用于在服务构建上定义和获取服务依赖。如下
+    //或者用于声明和获取服务对服务构造的依赖关系
     public class JobService : IJobService
     {
+        //将注入的依赖赋值给只读（readonly）的字段或属性
+        //(为了防止在内部方法中意外地赋予其他值)。
         private readonly IJobRepo _jobRepo;
-
+        //JobService将IJobRepo作为依赖注入到它的构造函数
         public JobService(IJobRepo jobRepo)
         {
             _jobRepo = jobRepo;
         }
-
+        //然后在 GetJobsList方法内部使用这个依赖
         public async Task<IEnumerable<Heytour>> GetJobsList()
         {
             var jobs = await Task.Run(() => _jobRepo.GetJobs().ToList());
             return jobs;
         }
 
-     
+
+        // public async Task<IEnumerable<Heytour>> GetJobById(int jobId)
+        // {
+        //     var job = await Task.Run(() => _jobRepo.GetJobById(jobId));
+        //     return job;
+        // }
+
+
     }
-    
+
 }

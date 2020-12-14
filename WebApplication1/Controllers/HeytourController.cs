@@ -26,14 +26,14 @@ namespace WebApplication1.Controllers
 
             return jobs.ToList();
         }
-        /*
-         [HttpGet("jobId")] //api/heytour/jobId
-public async Task<ActionResult<IEnumerable<Heytour>>> GetJobsList(int jobId)
-                {
-                    var job = await _jobService.GetJobsList(jobId);
-                    return new JsonResult(job);
-                }
-       */
+
+        //  [HttpGet("{jobId}")] //api/heytour/jobId
+        //  public async Task<ActionResult<IEnumerable<Heytour>>> GetJobById(int jobId)
+        //         {
+        //             var job = await _jobService.GetJobById(jobId);
+        //             return new JsonResult(job);
+        //         }
+
     }
 
 }

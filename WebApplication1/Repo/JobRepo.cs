@@ -9,6 +9,7 @@ namespace WebApplication1.Repo
     public interface IJobRepo
     {
         IEnumerable<Heytour> GetJobs();
+    
     }
     public class JobRepo : IJobRepo
     {
