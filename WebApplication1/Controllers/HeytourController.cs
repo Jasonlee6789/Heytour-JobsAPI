@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Model;
 using WebApplication1.Service;
+using WebApplication1.ResourceParameters;
+
 
 
 namespace WebApplication1.Controllers
@@ -20,19 +22,21 @@ namespace WebApplication1.Controllers
             _jobService = jobService;
         }
         [HttpGet] //api/heytour
-        public async Task<ActionResult<IEnumerable<Heytour>>> GetJobsList()
+        public async Task<ActionResult<IEnumerable<Heytour>>> GetJobsList(
+            [FromQuery] JobsFilterParameters parameters
+            )
         {
-            var jobs = await _jobService.GetJobsList();
+            var jobs = await _jobService.GetJobsList(parameters);
 
             return jobs.ToList();
         }
 
-        //  [HttpGet("{jobId}")] //api/heytour/jobId
-        //  public async Task<ActionResult<IEnumerable<Heytour>>> GetJobById(int jobId)
-        //         {
-        //             var job = await _jobService.GetJobById(jobId);
-        //             return new JsonResult(job);
-        //         }
+        [HttpGet("{jobId}")] //api/heytour/jobId
+        public async Task<ActionResult<Heytour>> GetJobById([FromQuery] int jobId)
+        {
+            var job = await _jobService.GetJobById(jobId);
+            return job;
+        }
 
     }
 

@@ -22,7 +22,7 @@ namespace WebApplication1
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this method to add services to the container.用于服务注册
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options =>
@@ -49,7 +49,7 @@ namespace WebApplication1
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.向应用程序的请求管道中添加中间件。
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
