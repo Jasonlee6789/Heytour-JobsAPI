@@ -29,8 +29,25 @@ namespace WebApplication1.Service
         //然后在 GetJobsList方法内部使用这个依赖
         public async Task<IEnumerable<Heytour>> GetJobsList(JobsFilterParameters parameters)
         {
-            var jobs = await Task.Run(() => _jobRepo.GetJobs().Where(x=> x.IsActive == parameters.IsActive).ToList());
-            return jobs;
+            if (parameters.IsActive.HasValue) {
+                var jobs = await Task.Run(() => _jobRepo.GetJobs().Where(x => x.IsActive == parameters.IsActive).ToList());
+                return jobs;
+            }
+            else if (!parameters.IsActive.HasValue)
+            {
+                if(parameters.PostedOn != null)
+                {
+                    var jobs = await Task.Run(() => _jobRepo.GetJobs().Where(x => x.PostedOn == parameters.PostedOn).ToList());
+                    return jobs;
+                }
+                else
+                {
+                    var jobs = await Task.Run(() => _jobRepo.GetJobs().ToList());
+                    return jobs;
+                }
+
+            }
+            
         }
 
 

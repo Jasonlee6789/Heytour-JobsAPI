@@ -7,7 +7,7 @@ namespace WebApplication1.ResourceParameters
 {
     public class JobsFilterParameters
     {
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
         public DateTime PostedOn { get; set; }
 
         public string FilterTerm { get; set; }
