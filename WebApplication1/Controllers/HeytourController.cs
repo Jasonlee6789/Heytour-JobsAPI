@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("{jobId}")] //api/heytour/jobId
-        public async Task<ActionResult<Heytour>> GetJobById([FromQuery] int jobId)
+        public async Task<ActionResult<Heytour>> GetJobById(int jobId)
         {
             var job = await _jobService.GetJobById(jobId);
             return job;

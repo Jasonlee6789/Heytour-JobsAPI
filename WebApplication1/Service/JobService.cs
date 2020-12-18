@@ -33,18 +33,17 @@ namespace WebApplication1.Service
             if (parameters.IsActive.HasValue)
             {
                jobs = await Task.Run(() => _jobRepo.GetJobs().Where(x => x.IsActive == parameters.IsActive).ToList());
-              
+               
             }
+            else if (parameters.PostedOn.HasValue)
+            {
+                jobs = await Task.Run(() => _jobRepo.GetJobs().Where(x => x.PostedOn == parameters.PostedOn).ToList());
+            } 
             else 
             {
                 jobs= await Task.Run(() => _jobRepo.GetJobs().ToList());
             }
-            /* if (parameters.PostedOn != null)
-             {
-                 jobs = await Task.Run(() => _jobRepo.GetJobs().Where(x => x.PostedOn == parameters.PostedOn).ToList());
-                 return jobs;
-             }
-            */
+
             return jobs;
         }
 
