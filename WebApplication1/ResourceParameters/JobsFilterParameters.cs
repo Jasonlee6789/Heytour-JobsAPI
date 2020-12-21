@@ -10,6 +10,6 @@ namespace WebApplication1.ResourceParameters
         public bool? IsActive { get; set; }
         public DateTime? PostedOn { get; set; }
 
-        public string FilterTerm { get; set; }
+        public string Title { get; set; }
     }
 }

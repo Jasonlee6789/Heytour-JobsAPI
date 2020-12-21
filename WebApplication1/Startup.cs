@@ -9,6 +9,7 @@ using WebApplication1.Repo;
 using WebApplication1.Service;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.OpenApi.Models;
+using System;
 
 
 namespace WebApplication1
@@ -46,6 +47,13 @@ namespace WebApplication1
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Heytour-JobsAPI", Version = "v1" });
             });
+
+            string connectionString = Configuration["ConnectionStrings:JobDbContext"];
+
+            services.AddDbContext<JobDbContext>(options => options.UseSqlServer(connectionString));
+                                                           // (Configuration.GetConnectionString("JobDbContext")));
+                                                
+
 
         }
 

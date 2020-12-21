@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Model
 {
-    public class Heytour
+    public class HeytourJob
     {
+        [Key]
         public int Id { get; set; }
         public bool IsActive { get; set; }
         public string Title { get; set; }
