@@ -39,8 +39,10 @@ namespace WebApplication1.Repo
                  {new HeytourJob { Id = 7, IsActive = false, Title = "Teacher Aide", Location="Hoagland, Oklahoma", Company ="CAXT",  Email="frankhorton@caxt.com", Industry="Education", JobDesc="Ea nostrud reprehenderit dolore magna duis Lorem qui deserunt ipsum nisi nulla voluptate non. Sunt id reprehenderit nulla officia consequat aute incididunt ut excepteur occaecat excepteur incididunt. Voluptate non nostrud enim proident incididunt commodo culpa enim incididunt ut est sint labore magna. Ipsum aliqua consectetur nostrud laborum minim velit.", Picture="https://picsum.photos/300/307", PostedOn=DateTime.Parse("2020-12-13T02:43:09") } },
              }; */
             //这些query方法是数据库直接还给结果 ,jobs是table
-            var query = _jobDbContext.Jobs
-                .Where(j => j.IsActive == filter.IsActive);
+            var query = _jobDbContext.Jobs;
+            if (filter.IsActive.HasValue) {
+                query.Where(j => j.IsActive == filter.IsActive);
+            }
 
             if (filter.PostedOn != default)
             {
