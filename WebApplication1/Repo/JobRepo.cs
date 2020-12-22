@@ -67,7 +67,7 @@ namespace WebApplication1.Repo
             _jobDbContext.Jobs.Add(job);
 
             await _jobDbContext.SaveChangesAsync();
-
+            //EF Core 检测所做的更改，并将这些更改写入数据库。
             return job;
         }
 

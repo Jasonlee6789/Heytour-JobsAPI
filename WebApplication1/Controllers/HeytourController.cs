@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
 
             var filter = new JobsFilterParameters
             {
-                IsActive = HttpContext.Request.Query["isactive"].ToString() == "true",
+                IsActive = HttpContext.Request.Query["isActive"].ToString() == "true",
                 PostedOn = postedOn,
                 Title = HttpContext.Request.Query["title"].ToString()
             };
@@ -48,7 +48,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<HeytourJob>> Post(HeytourJob job)
+        public async Task<ActionResult<HeytourJob>> Post([FromBody] HeytourJob job)
         {
             var res = await _jobService.CreateJob(job);
             return res;
@@ -57,7 +57,7 @@ namespace WebApplication1.Controllers
         [HttpPut]
         [Route("{id}")]
 
-        public async Task<ActionResult> PutJob(int id, HeytourJob job)
+        public async Task<ActionResult> PutJob(int id, [FromBody] HeytourJob job)
         {
             await _jobService.UpdateJob(id, job);
 

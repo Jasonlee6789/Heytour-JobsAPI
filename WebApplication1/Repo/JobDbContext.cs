@@ -22,7 +22,6 @@ namespace WebApplication1.Repo
         }
 
 
-
         //通过重写OnModelCreating声明一个模型类
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
